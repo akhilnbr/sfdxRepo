@@ -1,0 +1,7 @@
+.AllPillcontainer{
+    display: flex;
+    padding-top: 3px;
+}
+.searchAndPillContainer{
+    display:flex;
+}

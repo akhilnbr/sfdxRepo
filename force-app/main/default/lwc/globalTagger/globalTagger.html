@@ -1,0 +1,16 @@
+<template>
+    <div class="slds-theme_default" onkeyup={handleKeyPress}>
+        <lightning-layout vertical-align="start">
+            <lightning-layout-item flexibility="grow">
+                <lightning-pill-container items={tags} onitemremove={handleItemRemove}></lightning-pill-container>    
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout vertical-align="start">
+            <lightning-layout-item flexibility="grow">
+                    <c-custom-lookup-l-w-c object-name="Contact" field-name="Name" placeholder="Add tags"
+                        label="" iconname="utility:topic2" onselect={handleSelection} onrecordsfound={handleRecordsFound} onhighlightbutton={highlightButton} onaddtag={createTag}></c-custom-lookup-l-w-c>
+            </lightning-layout-item>
+        </lightning-layout>
+        
+    </div>
+</template>

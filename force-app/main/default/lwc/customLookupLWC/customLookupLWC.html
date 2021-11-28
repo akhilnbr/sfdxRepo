@@ -1,0 +1,43 @@
+<template>
+    <div class="slds-m-padding_around">
+            <c-custom-search onsearch={handleSearch} search-label={label}
+                isrequired="false" placeholder={placeholder} onfocuslist={handleFocusList} onshowrecents={showRecents}></c-custom-search>
+    </div>
+    <div class="slds-m-padding_around">
+        <template if:false={selectedRecord} onkeyup={handleKeyPress} >
+            <template if:true={records}>
+                <template for:each={records} for:item="rec" for:index="index">
+                    <ul key={rec.Id} 
+                        class="slds-listbox" >
+                    <c-record-list-item key={rec.Id} rec={rec}
+                         iconname={iconname}
+                         onselect={handleSelect}>
+                    </c-record-list-item>
+                    </ul>
+                </template>
+            </template>
+            <!--<template if:false={records}>
+                <template if:true={searchTerm}>
+                    <ul class="slds-listbox">
+                        <lightning-button variant="base" label={addTagLabel} title={addTagLabel} icon-name="utility:add" class="slds-m-left_x-small" onclick={createTag}></lightning-button>
+                    </ul>
+                </template>
+            </template>-->
+        </template>
+        <template if:true={selectedRecord} >
+            <!--<label class="slds-form-element__label" for="unique-id-of-input">
+                    {label}
+            </label>
+            <div class="slds-pill-container">
+                <lightning-pill class="pillSize" 
+                        href="JavaScript:void(0);"
+                        label={selectedRecord.Name} 
+                        name={selectedRecord.Name} 
+                        onremove={handleRemove}>
+                    <lightning-icon icon-name={iconname} variant="circle"  
+                            alternative-text={objectName}></lightning-icon>        
+                </lightning-pill>
+            </div>-->
+        </template>
+    </div>
+</template>

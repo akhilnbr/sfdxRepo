@@ -1,0 +1,26 @@
+<template>
+    <div class=" slds-p-top_small slds-p-left_x-small slds-p-right_x-small slds-p-bottom_large" style = 'background-color: #f2f2f2;'>
+        <div class="slds-box">
+            <lightning-icon class="" icon-name="action:leave_group" alternative-text="Approved" variant="inverse" size="small"></lightning-icon>
+             <!-- <lightning:icon iconName="action:leave_group" alternativeText="Approved" title="Approved" ></lightning:icon>  -->
+             <strong> Portfolio Company Customers</strong></div>
+             <div class="slds-box slds-p-top_small" >
+    <c-custom-data-table key-field="Id" 
+                        data={data} 
+                        columns={columns} 
+                        onsomething={applyChange} 
+                        onpicklistchanged={picklistChanged}
+                        onvalueselect={handleSelection}
+                        show-row-number-column="true"
+                        onsave={handleSave}
+                        draft-values={draftValues}
+                        sorted-by={sortBy}
+                        sorted-direction={sortDirection}
+                        onsort={handleSortdata}
+                        hide-checkbox-column="true">
+    </c-custom-data-table>
+    </div>
+    </div>
+    <!-- onclick = {setValue} -->
+     <!-- onclick-editable={handleEdit} -->
+</template>

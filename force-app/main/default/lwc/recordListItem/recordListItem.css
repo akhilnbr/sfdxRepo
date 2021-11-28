@@ -1,0 +1,22 @@
+li {
+    height: 30px;
+}
+
+.highlighted {
+    background-color: #005fb2;
+    color: white;
+    border-radius: 3px;
+    fill: white;
+}
+
+/*
+.highlighted svg {
+    fill: white;
+}
+*/
+
+.slds-icon_container {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}

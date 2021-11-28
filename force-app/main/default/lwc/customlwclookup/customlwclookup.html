@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-m-padding_around searchAndList">
+        <c-lwcsearchcomponent onsearch={hanldeSearch} search-label={label} ></c-lwcsearchcomponent>
+       
+        <template if:false={selectedRecord} >
+            <template if:true={records}>
+                <lightning:card >
+                <ul class="slds-listbox slds-listbox_vertical" role="presentation" >
+                    <template for:each={records} for:item="rec" for:index="index">
+                        <c-lwcrecordlist key={rec.Id} rec={rec} iconname={iconname} onselect={handleSelect}>
+                        </c-lwcrecordlist>
+                    </template>
+                </ul>
+            </lightning:card>
+            </template>
+        </template>
+        
+    </div>
+</template>

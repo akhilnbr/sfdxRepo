@@ -1,0 +1,23 @@
+<template>
+<div class="searchAndPillContainer">
+   
+   <c-lwc-look-Up obj-name="Account" search-placeholder="Search Accounts" icon-name="standard:account" onselect={handleAccountSelection} > </c-lwc-look-Up>   
+   <div class="AllPillcontainer">
+      <template if:true={tagsAddedOrRemoved}>
+  
+              <template for:each={tagsApplied} for:item="rec" >
+                      <div class="slds-pill-container" key={rec.Name}>
+                              <lightning-pill class="pillSize" 
+                                      href="JavaScript:void(0);"
+                                      label={rec.Name} 
+                                      name={rec.Name} 
+                                      onremove={handleRemove}>
+                                  <lightning-icon icon-name={iconname} variant="circle"  
+                                          alternative-text={objectName}></lightning-icon>        
+                              </lightning-pill>
+                      </div>
+              </template>
+      </template>
+      </div>
+</div>
+</template>
