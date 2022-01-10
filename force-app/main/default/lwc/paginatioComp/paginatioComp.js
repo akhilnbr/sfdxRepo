@@ -13,7 +13,7 @@ export default class PaginatioComp extends LightningElement {
     dataLimit = 5;//pagination only applies only if there are more than 5 data.
     dataStorage= [];
     tempStorage= [];
-    endPoint=4;  
+    endPoint=4;  //defines the no of records per page
     startPoint=0;
     trackRecordCounter=1;
     @wire(getAccounts)
@@ -47,8 +47,9 @@ export default class PaginatioComp extends LightningElement {
         let index = this.accountList.findIndex(x=>x.Id==getRecordId);
         //prevent navigating to the prev record.
         if(index!=0){
+            let noOfRecordsPerPage=5; // defines the no of record per page
             this.endPoint = index-1;
-            this.startPoint = index - 5;
+            this.startPoint = index - noOfRecordsPerPage;
             this.tempStorage = [];
             this.prepareRecordsForPrev();
         }
@@ -59,20 +60,24 @@ export default class PaginatioComp extends LightningElement {
     prepareRecordsForNext(){
 
         console.log('-------------prepareRecords--------------------')
-        if(this.endPoint !=this.accountList.length-1){
-            if(this.tempStorage.length!=0){
-                let lastAccId  =this.tempStorage[this.tempStorage.length-1].Id;
-                let index = this.accountList.findIndex(x=>x.Id==lastAccId);
-                this.startPoint = index+1;
-                this.endPoint = index+5;
-                this.tempStorage=[];   
-            }
-            for(var i=this.startPoint;i<=this.endPoint;i++){
-                if(this.accountList[i] != undefined)
-                this.tempStorage.push(this.accountList[i]);
-            }
-            this.dataStorage = this.tempStorage;
+
+        //Identify if it is the last element.c/customDatatableDemo
+        if(this.tempStorage.length!=0){
+            let noOfRecordsPerPage=5;
+            let lastAccId  =this.tempStorage[this.tempStorage.length-1].Id;
+            let index = this.accountList.findIndex(x=>x.Id==lastAccId);
+            if(index == this.accountList.length-1)
+                return;
+            this.startPoint = index+1;
+            this.endPoint = index+ noOfRecordsPerPage;
+            this.tempStorage=[];   
         }
+        for(var i=this.startPoint;i<=this.endPoint;i++){
+            if(this.accountList[i] != undefined)
+            this.tempStorage.push(this.accountList[i]);
+        }
+        this.dataStorage = this.tempStorage;
+        
     }
 
     prepareRecordsForPrev(){
