@@ -1,0 +1,6 @@
+.parentcontainer{
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 3px;
+    justify-content: right;
+}

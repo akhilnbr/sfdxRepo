@@ -1,0 +1,15 @@
+<template>
+    <lightning-card>
+        <div>
+            <div class="parentcontainer">
+                <c-load-page-size onselectedsize={onPageSizeChange} list-of-pages ={pageCount} onselectpage={onPageChange}></c-load-page-size>
+                <lightning-button label="<" title="Prev" onclick={gotoPrePage} class="slds-m-left_x-small"></lightning-button><lightning-button label=">" title="Next" onclick={goToNextPage} class="slds-m-left_x-small"></lightning-button>
+            </div>
+            <lightning-datatable
+                key-field="id"
+                data={dataStorage}
+                columns={columns}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

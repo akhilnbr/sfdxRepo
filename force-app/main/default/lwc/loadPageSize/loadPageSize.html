@@ -1,0 +1,10 @@
+<template>
+    <div class="container">
+        <div>
+            <lightning-combobox options={pagesize} onchange={changeListSize} value={size} label="Page Size"></lightning-combobox>
+        </div>
+        <div>
+            <lightning-combobox options={listOfPages} onchange={changePage} value={page} label="Page"></lightning-combobox>
+        </div>
+    </div>
+</template> 
