@@ -64,6 +64,7 @@ export default class PaginatioComp extends LightningElement {
 
     }
 
+    //load account to display
     loadAccount(){
         this.tempStorage=[];
         for(var i=this.startPoint;i<=this.endPoint;i++){
@@ -74,6 +75,7 @@ export default class PaginatioComp extends LightningElement {
         this.dataStorage = this.tempStorage;
     }
     
+    //change the number of items to dsiplay
     onPageSizeChange(event){
         this.startPoint = 0;
         this.endPoint =  parseInt(event.detail)-1; 
@@ -82,8 +84,7 @@ export default class PaginatioComp extends LightningElement {
         this.calculatePage();
     }
 
-    //calculatepage
-
+    //shows the number of pages available for pagination
     calculatePage(){
         const reminder = this.accountList.length % this.selectedPageSize;
         const quotient = this.accountList.length / this.selectedPageSize;
@@ -98,6 +99,7 @@ export default class PaginatioComp extends LightningElement {
 
     }
 
+    //calls whenever there is a change in page.
     onPageChange(e){
         const selectedPage = parseInt(e.detail);
         this.endPoint = (this.selectedPageSize * selectedPage)-1;

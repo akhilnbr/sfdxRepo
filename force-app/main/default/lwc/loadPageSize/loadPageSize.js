@@ -19,6 +19,7 @@ export default class LoadPageSize extends LightningElement {
         console.log(this.listOfPages);
 
     }
+   //sending selected page size the parent component
     changeListSize(e){
         this.page = '1';
         this.size =  e.detail.value;
@@ -28,7 +29,7 @@ export default class LoadPageSize extends LightningElement {
         });
         this.dispatchEvent(event);
     }
-
+    //sending selected page the parent component
     changePage(e){
         this.page= e.detail.value;
         const event =  new CustomEvent('selectpage',{
